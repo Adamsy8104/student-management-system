@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Management System</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .form-box,
+        .students-box {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        input,
+        select {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .student-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .student-card h3 {
+            margin-top: 0;
+        }
+
+        .student-card button {
+            width: auto;
+            margin-right: 8px;
+            padding: 8px 12px;
+        }
+
+        .student-card button:last-child {
+            background: #dc3545;
+        }
+
+        .search-filter {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .empty {
+            text-align: center;
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+            .search-filter {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Student Management System</h1>
+
+
+        <!-- ========================= -->
+        <!-- ADD STUDENT FORM -->
+        <!-- ========================= -->
+
+        <div class="form-box">
+
+            <h2>Add Student</h2>
+
+            <form id="studentForm">
+
+                <!-- Name -->
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Student Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter student name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Department -->
+
+                <div class="form-group">
+
+                    <label for="department">
+                        Department
+                    </label>
+
+                    <input
+                        type="text"
+                        id="department"
+                        placeholder="Enter department"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Level -->
+
+                <div class="form-group">
+
+                    <label for="level">
+                        Level
+                    </label>
+
+                    <select id="level" required>
+
+                        <option value="">
+                            Select Level
+                        </option>
+
+                        <option value="100">
+                            100 Level
+                        </option>
+
+                        <option value="200">
+                            200 Level
+                        </option>
+
+                        <option value="300">
+                            300 Level
+                        </option>
+
+                        <option value="400">
+                            400 Level
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Submit -->
+
+                <button type="submit">
+                    Add Student
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- SEARCH & FILTER -->
+        <!-- ========================= -->
+
+        <div class="students-box">
+
+            <h2>Students</h2>
+
+            <div class="search-filter">
+
+                <!-- Search -->
+
+                <div>
+
+                    <label for="search">
+                        Search Student
+                    </label>
+
+                    <input
+                        type="text"
+                        id="search"
+                        placeholder="Search by name..."
+                    >
+
+                </div>
+
+
+                <!-- Level Filter -->
+
+                <div>
+
+                    <label for="levelFilter">
+                        Filter by Level
+                    </label>
+
+                    <select id="levelFilter">
+
+                        <option value="all">
+                            All Levels
+                        </option>
+
+                        <option value="100">
+                            100 Level
+                        </option>
+
+                        <option value="200">
+                            200 Level
+                        </option>
+
+                        <option value="300">
+                            300 Level
+                        </option>
+
+                        <option value="400">
+                            400 Level
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- ========================= -->
+            <!-- STUDENT LIST -->
+            <!-- ========================= -->
+
+            <div id="studentList">
+
+                <p class="empty">
+                    No students registered yet.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================= -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
